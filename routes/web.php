@@ -4,10 +4,18 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KegiatanController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminGatewayController;
 
 #Route::get("/", function () {
 #    return view("welcome");
 #});
+
+Route::get("/admin-gateway", [AdminGatewayController::class, "show"])->name(
+    "admin.gateway"
+);
+Route::post("/admin-gateway", [AdminGatewayController::class, "verify"])->name(
+    "admin.gateway.verify"
+);
 
 Route::get("/berita", [BeritaController::class, "index"])->name("berita.index");
 Route::get("/berita/{berita:slug}", [BeritaController::class, "show"])->name(
