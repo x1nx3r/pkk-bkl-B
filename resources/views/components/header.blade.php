@@ -19,8 +19,8 @@
                         <a href="{{ route('profil') }}" class="px-4 py-2 rounded-full text-gray-700 hover:text-[#5A92C9] hover:bg-[#5A92C9]/5 transition-all font-medium">Profil</a>
                         <a href="{{ route('visi-misi') }}" class="px-4 py-2 rounded-full text-gray-700 hover:text-[#5A92C9] hover:bg-[#5A92C9]/5 transition-all font-medium">Visi-Misi</a>
                         <a href="{{ route('pokja-sekretariat') }}" class="px-4 py-2 rounded-full text-gray-700 hover:text-[#5A92C9] hover:bg-[#5A92C9]/5 transition-all font-medium">Program Kerja</a>
-                        <a href="{{ route('informasi') }}" class="px-4 py-2 rounded-full text-gray-700 hover:text-[#5A92C9] hover:bg-[#5A92C9]/5 transition-all font-medium">Berita</a>
-                        <a href="{{ route('dokumentasi') }}" class="px-4 py-2 rounded-full text-gray-700 hover:text-[#5A92C9] hover:bg-[#5A92C9]/5 transition-all font-medium">Kegiatan</a>
+                        <a href="{{ route('berita.index') }}" class="px-4 py-2 rounded-full text-gray-700 hover:text-[#5A92C9] hover:bg-[#5A92C9]/5 transition-all font-medium">Berita</a>
+                        <a href="{{ route('kegiatan.index') }}" class="px-4 py-2 rounded-full text-gray-700 hover:text-[#5A92C9] hover:bg-[#5A92C9]/5 transition-all font-medium">Kegiatan</a>
                     </div>
                 </nav>
 
@@ -78,7 +78,7 @@
                             Pokja-Sekretariat
                         </div>
                     </a>
-                    <a href="{{ route('informasi') }}" class="block px-3 py-2.5 text-gray-700 hover:text-[#5A92C9] hover:bg-white rounded-lg transition-all">
+                    <a href="{{ route('berita.index') }}" class="block px-3 py-2.5 text-gray-700 hover:text-[#5A92C9] hover:bg-white rounded-lg transition-all">
                         <div class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -86,7 +86,7 @@
                             Informasi
                         </div>
                     </a>
-                    <a href="{{ route('dokumentasi') }}" class="block px-3 py-2.5 text-gray-700 hover:text-[#5A92C9] hover:bg-white rounded-lg transition-all">
+                    <a href="{{ route('kegiatan.index') }}" class="block px-3 py-2.5 text-gray-700 hover:text-[#5A92C9] hover:bg-white rounded-lg transition-all">
                         <div class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
