@@ -1,11 +1,18 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\KegiatanController;
 use Illuminate\Support\Facades\Route;
 
 #Route::get("/", function () {
 #    return view("welcome");
 #});
+
+Route::get("/berita", [BeritaController::class, "index"])->name("berita.index");
+Route::get("/berita/{berita:slug}", [BeritaController::class, "show"])->name(
+    "berita.show"
+);
 
 Route::get("/", function () {
     return view("homepage");
@@ -41,6 +48,16 @@ Route::get("/dashboard", function () {
     ->middleware(["auth", "verified"])
     ->name("dashboard");
 
+// Kegiatan routes
+Route::get("/kegiatan", [KegiatanController::class, "index"])->name(
+    "kegiatan.index"
+);
+
+Route::get("/kegiatan/{kegiatan:slug}", [
+    KegiatanController::class,
+    "show",
+])->name("kegiatan.show");
+
 Route::middleware("auth")->group(function () {
     Route::get("/profile", [ProfileController::class, "edit"])->name(
         "profile.edit"
@@ -51,6 +68,25 @@ Route::middleware("auth")->group(function () {
     Route::delete("/profile", [ProfileController::class, "destroy"])->name(
         "profile.destroy"
     );
+
+    Route::get("/berita/create", [BeritaController::class, "create"])->name(
+        "berita.create"
+    );
+    Route::post("/berita", [BeritaController::class, "store"])->name(
+        "berita.store"
+    );
+    Route::get("/berita/{berita:slug}/edit", [
+        BeritaController::class,
+        "edit",
+    ])->name("berita.edit");
+    Route::put("/berita/{berita:slug}", [
+        BeritaController::class,
+        "update",
+    ])->name("berita.update");
+    Route::delete("/berita/{berita:slug}", [
+        BeritaController::class,
+        "destroy",
+    ])->name("berita.destroy");
 });
 
 require __DIR__ . "/auth.php";
