@@ -17,7 +17,15 @@ Route::get("/", [HomeController::class, "index"])->name("home");
 
 // Static Pages
 Route::view("/profil", "profil")->name("profil");
-Route::view("/visi-misi", "visi-misi")->name("visi-misi");
+Route::get("/visi-misi", function () {
+    // Get all active sections for the "visi-misi" page
+    $pageSections = \App\Models\PageSection::where("page_slug", "visi-misi")
+        ->where("active", true)
+        ->orderBy("order")
+        ->get();
+
+    return view("visi-misi", compact("pageSections"));
+})->name("visi-misi");
 Route::view("/pokja-sekretariat", "pokja-sekretariat")->name(
     "pokja-sekretariat"
 );
