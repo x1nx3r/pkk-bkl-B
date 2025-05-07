@@ -1,15 +1,31 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminGatewayController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KegiatanController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminGatewayController;
 
-#Route::get("/", function () {
-#    return view("welcome");
-#});
+/*
+|--------------------------------------------------------------------------
+| Public Routes
+|--------------------------------------------------------------------------
+*/
 
+// Home Page
+Route::get("/", function () {
+    return view("homepage");
+})->name("home");
+
+// Static Pages
+Route::view("/profil", "profil")->name("profil");
+Route::view("/visi-misi", "visi-misi")->name("visi-misi");
+Route::view("/pokja-sekretariat", "pokja-sekretariat")->name(
+    "pokja-sekretariat"
+);
+Route::view("/informasi", "informasi")->name("informasi");
+Route::view("/dokumentasi", "dokumentasi")->name("dokumentasi");
+
+// Admin Gateway
 Route::get("/admin-gateway", [AdminGatewayController::class, "show"])->name(
     "admin.gateway"
 );
@@ -17,84 +33,32 @@ Route::post("/admin-gateway", [AdminGatewayController::class, "verify"])->name(
     "admin.gateway.verify"
 );
 
+/*
+|--------------------------------------------------------------------------
+| Content Display Routes
+|--------------------------------------------------------------------------
+*/
+
+// Berita (News) - Public Display Only
 Route::get("/berita", [BeritaController::class, "index"])->name("berita.index");
 Route::get("/berita/{berita:slug}", [BeritaController::class, "show"])->name(
     "berita.show"
 );
 
-Route::get("/", function () {
-    return view("homepage");
-})->name("home");
-
-Route::get("/profil", function () {
-    return view("profil");
-})->name("profil");
-
-Route::get("/visi-misi", function () {
-    return view("visi-misi");
-})->name("visi-misi");
-
-Route::get("/pokja-sekretariat", function () {
-    return view("pokja-sekretariat");
-})->name("pokja-sekretariat");
-
-Route::get("/informasi", function () {
-    return view("informasi");
-})->name("informasi");
-
-Route::get("/dokumentasi", function () {
-    return view("dokumentasi");
-})->name("dokumentasi");
-
-Route::get("/visi-misi", function () {
-    return view("visi-misi");
-})->name("visi-misi");
-
-Route::get("/dashboard", function () {
-    return view("dashboard");
-})
-    ->middleware(["auth", "verified"])
-    ->name("dashboard");
-
-// Kegiatan routes
+// Kegiatan (Activities) - Public Display Only
 Route::get("/kegiatan", [KegiatanController::class, "index"])->name(
     "kegiatan.index"
 );
-
 Route::get("/kegiatan/{kegiatan:slug}", [
     KegiatanController::class,
     "show",
 ])->name("kegiatan.show");
 
-Route::middleware("auth")->group(function () {
-    Route::get("/profile", [ProfileController::class, "edit"])->name(
-        "profile.edit"
-    );
-    Route::patch("/profile", [ProfileController::class, "update"])->name(
-        "profile.update"
-    );
-    Route::delete("/profile", [ProfileController::class, "destroy"])->name(
-        "profile.destroy"
-    );
+/*
+|--------------------------------------------------------------------------
+| Authentication Routes
+|--------------------------------------------------------------------------
+*/
 
-    Route::get("/berita/create", [BeritaController::class, "create"])->name(
-        "berita.create"
-    );
-    Route::post("/berita", [BeritaController::class, "store"])->name(
-        "berita.store"
-    );
-    Route::get("/berita/{berita:slug}/edit", [
-        BeritaController::class,
-        "edit",
-    ])->name("berita.edit");
-    Route::put("/berita/{berita:slug}", [
-        BeritaController::class,
-        "update",
-    ])->name("berita.update");
-    Route::delete("/berita/{berita:slug}", [
-        BeritaController::class,
-        "destroy",
-    ])->name("berita.destroy");
-});
-
+// Auth routes (login, register, password reset, etc.)
 require __DIR__ . "/auth.php";
