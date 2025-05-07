@@ -15,12 +15,9 @@ class BeritaController extends Controller
     {
         $beritas = Berita::with(["user"])
             ->filter($request->only(["search"]))
-            ->when(
-                !auth()->check() || !auth()->user()->hasRole("admin"),
-                function ($query) {
-                    return $query->published();
-                }
-            )
+            ->when(!auth()->check(), function ($query) {
+                return $query->published();
+            })
             ->latest()
             ->paginate(9);
 

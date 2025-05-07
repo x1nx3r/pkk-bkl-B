@@ -43,10 +43,11 @@ class AdminPanelProvider extends PanelProvider
                 in: app_path("Filament/Widgets"),
                 for: "App\\Filament\\Widgets"
             )
-            ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
-            ])
+            ->widgets([Widgets\AccountWidget::class])
+            ->brandName("Tim Penggerak PKK Bangkalan")
+            ->brandLogo(asset("images/logo-pkk.png"))
+            ->favicon(asset("icons/icon-pkk.ico"))
+            ->spa()
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
