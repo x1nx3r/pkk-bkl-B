@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminGatewayController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Home Page
-Route::get("/", function () {
-    return view("homepage");
-})->name("home");
+Route::get("/", [HomeController::class, "index"])->name("home");
 
 // Static Pages
 Route::view("/profil", "profil")->name("profil");
