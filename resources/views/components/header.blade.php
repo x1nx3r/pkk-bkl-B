@@ -5,7 +5,7 @@
                 <!-- Logo and Organization Name -->
                 <a href="{{ url('/') }}" class="flex items-center space-x-3">
                     <div class="h-12 w-12 rounded-full bg-[#5A92C9]/10 p-2 flex items-center justify-center">
-                        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-8 w-auto">
+                        <img src="{{ asset('images/logo-pkk.png') }}" alt="Logo" class="h-8 w-auto">
                     </div>
                     <div>
                         <span class="text-xl font-bold text-[#5A92C9] block leading-tight">{{ $appName }}</span>
