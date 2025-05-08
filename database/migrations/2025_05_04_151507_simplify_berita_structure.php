@@ -7,43 +7,38 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up()
     {
-        // Drop existing tables first (if they exist)
-        Schema::dropIfExists("berita_tag");
-        Schema::dropIfExists("tags");
-        Schema::dropIfExists("kategori_beritas");
-
-        // If beritas table exists, modify it
+        // Only modify the existing beritas table to remove kategori_id
         if (Schema::hasTable("beritas")) {
-            // Drop the foreign key if it exists
-            if (Schema::hasColumn("beritas", "kategori_id")) {
-                Schema::table("beritas", function (Blueprint $table) {
-                    // Drop foreign key constraint first
-                    $table->dropForeign(["kategori_id"]);
-                    // Then drop the column
-                    $table->dropColumn("kategori_id");
-                });
-            }
-        } else {
-            // Create beritas table from scratch if it doesn't exist
-            Schema::create("beritas", function (Blueprint $table) {
-                $table->id();
-                $table->string("judul");
-                $table->string("slug")->unique();
-                $table->text("konten");
-                $table->string("featured_image")->nullable();
-                $table->string("status")->default("draft");
-                $table
-                    ->foreignId("user_id")
-                    ->constrained()
-                    ->onDelete("cascade");
-                $table->timestamps();
+            Schema::table("beritas", function (Blueprint $table) {
+                // Drop foreign key constraint first
+                $table->dropForeign(["kategori_id"]);
+                // Then drop the column
+                $table->dropColumn("kategori_id");
             });
+        }
+
+        // Clear related tables data
+        if (Schema::hasTable("berita_tag")) {
+            DB::table("berita_tag")->truncate();
+        }
+
+        if (Schema::hasTable("tags")) {
+            DB::table("tags")->truncate();
+        }
+
+        if (Schema::hasTable("kategori_beritas")) {
+            DB::table("kategori_beritas")->truncate();
         }
     }
 
     public function down()
     {
-        // This is a simplification migration, so rollback would be complex
-        // You might want to implement a proper rollback if needed
+        // Add kategori_id column back
+        Schema::table("beritas", function (Blueprint $table) {
+            $table
+                ->foreignId("kategori_id")
+                ->constrained("kategori_beritas")
+                ->onDelete("cascade");
+        });
     }
 };
