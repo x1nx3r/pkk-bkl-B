@@ -11,8 +11,8 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/wisata-jawatimur-api-gateway.git
-   cd wisata-jawatimur-api-gateway
+   git clon https://github.com/x1nx3r/pkk-bkl-B/
+   cd pkk-bkl-B
    ```
 
 2. **Install dependencies**
