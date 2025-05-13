@@ -43,7 +43,7 @@
 
         <!-- Organization Structure Section -->
         <div class="mb-16">
-            <x-ui.section-title title="Struktur Organisasi" />
+            <x-ui.section-title title="Struktur Kepengurusan" />
 
             <div class="bg-white rounded-xl shadow-sm p-8">
                 <x-pages.org-structure />
