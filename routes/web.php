@@ -26,9 +26,17 @@ Route::get("/visi-misi", function () {
 
     return view("visi-misi", compact("pageSections"));
 })->name("visi-misi");
-Route::view("/pokja-sekretariat", "pokja-sekretariat")->name(
-    "pokja-sekretariat"
-);
+Route::get("/pokja-sekretariat", function () {
+    $pageSections = \App\Models\PageSection::where(
+        "page_slug",
+        "pokja-sekretariat"
+    )
+        ->where("active", true)
+        ->orderBy("order")
+        ->get();
+
+    return view("pokja-sekretariat", compact("pageSections"));
+})->name("pokja-sekretariat");
 Route::view("/informasi", "informasi")->name("informasi");
 Route::view("/dokumentasi", "dokumentasi")->name("dokumentasi");
 
