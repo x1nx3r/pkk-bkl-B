@@ -59,10 +59,10 @@ class PageSectionResource extends Resource
                             "underline",
                             "strike",
                             "orderedList",
-                            "unorderedList",
                             "h2",
                             "h3",
                             "h4",
+                            "h5", // Added h5 which has styling in the template
                             "alignLeft",
                             "alignCenter",
                             "alignRight",
@@ -70,6 +70,9 @@ class PageSectionResource extends Resource
                             "undo",
                             "redo",
                             "blockquote",
+                            "bulletList", // For better unordered list management (already has styling)
+                            "indent", // Useful for creating hierarchies
+                            "outdent", // Useful for managing indentation
                         ])
                         ->helperText(
                             "Use ordered lists (numbered) and headings to structure your content. Basic styling will be applied automatically."
