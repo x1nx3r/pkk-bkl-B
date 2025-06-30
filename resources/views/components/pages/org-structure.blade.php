@@ -34,27 +34,27 @@
                         </tr>
                         <tr class="border-b border-gray-200">
                             <td class="py-3 px-4 text-gray-700">Ketua TP. PKK Kabupaten</td>
-                            <td class="py-3 px-4 text-gray-700">Hj. SUSILOWATI WIJAYANTI, S.H</td>
+                            <td class="py-3 px-4 text-gray-700">Ny. LUTFIANA LUKMAN HAKIM</td>
                             <td class="py-3 px-4">
-                                <img src="{{ asset('images/profiles/default.jpg') }}"
+                                <img src="{{ asset('images/struktur/K.PKK.png') }}"
                                      alt="Profile Picture"
                                      class="w-16 h-16 rounded-full object-cover">
                             </td>
                         </tr>
                         <tr class="border-b border-gray-200 bg-gray-50">
                             <td class="py-3 px-4 text-gray-700">Staf Ahli</td>
-                            <td class="py-3 px-4 text-gray-700">Hj. SUSILORINI WIJAYANTI, S.H</td>
+                            <td class="py-3 px-4 text-gray-700">Ny. MUAYYANAH FAUSAN DJA’FAR</td>
                             <td class="py-3 px-4">
-                                <img src="{{ asset('images/profiles/default.jpg') }}"
+                                <img src="{{ asset('images/struktur/Staff1.png') }}"
                                      alt="Profile Picture"
                                      class="w-16 h-16 rounded-full object-cover">
                             </td>
                         </tr>
                         <tr class="border-b border-gray-200">
                             <td class="py-3 px-4 text-gray-700">Staf Ahli</td>
-                            <td class="py-3 px-4 text-gray-700">Dra. R.Aj. SRI DARIAH SUNDARI</td>
+                            <td class="py-3 px-4 text-gray-700">Ny. AZIZAH ISMET EFFENDI</td>
                             <td class="py-3 px-4">
-                                <img src="{{ asset('images/profiles/default.jpg') }}"
+                                <img src="{{ asset('images/struktur/Staff2.png') }}"
                                      alt="Profile Picture"
                                      class="w-16 h-16 rounded-full object-cover">
                             </td>
@@ -63,7 +63,7 @@
                             <td class="py-3 px-4 text-gray-700">Staf Ahli</td>
                             <td class="py-3 px-4 text-gray-700">Ir. Hj. ISHAFIJATI SETIJA BUDHI, MM</td>
                             <td class="py-3 px-4">
-                                <img src="{{ asset('images/profiles/default.jpg') }}"
+                                <img src="{{ asset('images/struktur/Staff3.png') }}"
                                      alt="Profile Picture"
                                      class="w-16 h-16 rounded-full object-cover">
                             </td>
@@ -72,25 +72,25 @@
                             <td class="py-3 px-4 text-gray-700">Sekretaris</td>
                             <td class="py-3 px-4 text-gray-700">NUR ANNISA, SH., M.Si</td>
                             <td class="py-3 px-4">
-                                <img src="{{ asset('images/profiles/default.jpg') }}"
+                                <img src="{{ asset('images/struktur/S1.png') }}"
                                      alt="Profile Picture"
                                      class="w-16 h-16 rounded-full object-cover">
                             </td>
                         </tr>
                         <tr class="border-b border-gray-200 bg-gray-50">
                             <td class="py-3 px-4 text-gray-700">Sekretaris</td>
-                            <td class="py-3 px-4 text-gray-700">R. FENTI HASANAH</td>
+                            <td class="py-3 px-4 text-gray-700">Ny. Dra. POERWANTI SETIJANINGSIH</td>
                             <td class="py-3 px-4">
-                                <img src="{{ asset('images/profiles/default.jpg') }}"
+                                <img src="{{ asset('images/struktur/S2.png') }}"
                                      alt="Profile Picture"
                                      class="w-16 h-16 rounded-full object-cover">
                             </td>
                         </tr>
                         <tr class="border-b border-gray-200">
                             <td class="py-3 px-4 text-gray-700">Sekretaris</td>
-                            <td class="py-3 px-4 text-gray-700">NURIYAH FADILAH, S.Kom</td>
+                            <td class="py-3 px-4 text-gray-700">Ny. R. FENTI HASANAH</td>
                             <td class="py-3 px-4">
-                                <img src="{{ asset('images/profiles/default.jpg') }}"
+                                <img src="{{ asset('images/struktur/S3.png') }}"
                                      alt="Profile Picture"
                                      class="w-16 h-16 rounded-full object-cover">
                             </td>
@@ -99,16 +99,16 @@
                             <td class="py-3 px-4 text-gray-700">Bendahara</td>
                             <td class="py-3 px-4 text-gray-700">Ir. Hj. ELLY FARIDA FAUZI RUSLI</td>
                             <td class="py-3 px-4">
-                                <img src="{{ asset('images/profiles/default.jpg') }}"
+                                <img src="{{ asset('images/struktur/B1.png') }}"
                                      alt="Profile Picture"
                                      class="w-16 h-16 rounded-full object-cover">
                             </td>
                         </tr>
                         <tr class="border-b border-gray-200">
                             <td class="py-3 px-4 text-gray-700">Bendahara</td>
-                            <td class="py-3 px-4 text-gray-700">MUDAKKIR</td>
+                            <td class="py-3 px-4 text-gray-700">Ny. BUDIYATI, SE</td>
                             <td class="py-3 px-4">
-                                <img src="{{ asset('images/profiles/default.jpg') }}"
+                                <img src="{{ asset('images/struktur/B2.png') }}"
                                      alt="Profile Picture"
                                      class="w-16 h-16 rounded-full object-cover">
                             </td>
@@ -117,7 +117,7 @@
                             <td class="py-3 px-4 text-gray-700">Bendahara</td>
                             <td class="py-3 px-4 text-gray-700">KRISTINA WIDYA HANDINI EDI, SE</td>
                             <td class="py-3 px-4">
-                                <img src="{{ asset('images/profiles/default.jpg') }}"
+                                <img src="{{ asset('images/struktur/B3.png') }}"
                                      alt="Profile Picture"
                                      class="w-16 h-16 rounded-full object-cover">
                             </td>
@@ -166,9 +166,9 @@
                     <tbody>
                         <tr class="border-b border-gray-200">
                             <td class="py-3 px-4 text-gray-700">Ketua</td>
-                            <td class="py-3 px-4 text-gray-700">SITI AISYAH GANI</td>
+                            <td class="py-3 px-4 text-gray-700">Ny. Dra. Hj.RENIMAH BUDI UTOMO</td>
                             <td class="py-3 px-4">
-                                            <img src="{{ asset('images/profiles/default.jpg') }}"
+                                            <img src="{{ asset('images/struktur/K.BPKK.png') }}"
                                                  alt="Profile Picture"
                                                  class="w-16 h-16 rounded-full object-cover">
                                         </td>
@@ -177,7 +177,7 @@
                             <td class="py-3 px-4 text-gray-700">Wakil</td>
                             <td class="py-3 px-4 text-gray-700">Dra. Hj. RENIMAH BUDI UTOMO</td>
                             <td class="py-3 px-4">
-                                            <img src="{{ asset('images/profiles/default.jpg') }}"
+                                            <img src="{{ asset('images/struktur/default.png') }}"
                                                  alt="Profile Picture"
                                                  class="w-16 h-16 rounded-full object-cover">
                                         </td>
@@ -195,7 +195,7 @@
                             <td class="py-3 px-4 text-gray-700">Anggota</td>
                             <td class="py-3 px-4 text-gray-700">BUDIYATI, SE</td>
                             <td class="py-3 px-4">
-                                            <img src="{{ asset('images/profiles/default.jpg') }}"
+                                            <img src="{{ asset('images/struktur/B2.png') }}"
                                                  alt="Profile Picture"
                                                  class="w-16 h-16 rounded-full object-cover">
                                         </td>
@@ -291,7 +291,7 @@
                             <td class="py-3 px-4 text-gray-700">Wakil</td>
                             <td class="py-3 px-4 text-gray-700">Dra. Hj. NURHAYATI AFFANDY</td>
                             <td class="py-3 px-4">
-                                            <img src="{{ asset('images/profiles/default.jpg') }}"
+                                            <img src="{{ asset('images/struktur/K.BPPEK.png') }}"
                                                  alt="Profile Picture"
                                                  class="w-16 h-16 rounded-full object-cover">
                                         </td>
@@ -387,7 +387,7 @@
                             <td class="py-3 px-4 text-gray-700">Ketua</td>
                             <td class="py-3 px-4 text-gray-700">Dra. SRI SUHARTINI ANDANG, MM</td>
                             <td class="py-3 px-4">
-                                            <img src="{{ asset('images/profiles/default.jpg') }}"
+                                            <img src="{{ asset('images/struktur/K.BPKP.png') }}"
                                                  alt="Profile Picture"
                                                  class="w-16 h-16 rounded-full object-cover">
                                         </td>
@@ -477,7 +477,7 @@
                             <td class="py-3 px-4 text-gray-700">Ketua</td>
                             <td class="py-3 px-4 text-gray-700">Hj. BINTI SOLIKHAH, STp, MM</td>
                             <td class="py-3 px-4">
-                                            <img src="{{ asset('images/profiles/default.jpg') }}"
+                                            <img src="{{ asset('images/struktur/K.BKKL.png') }}"
                                                  alt="Profile Picture"
                                                  class="w-16 h-16 rounded-full object-cover">
                                         </td>
@@ -519,7 +519,7 @@
                             <td class="py-3 px-4 text-gray-700">Sekretaris</td>
                             <td class="py-3 px-4 text-gray-700">Dra. POERWANTI SETIJANINGSIH</td>
                             <td class="py-3 px-4">
-                                            <img src="{{ asset('images/profiles/default.jpg') }}"
+                                            <img src="{{ asset('images/struktur/S2.png') }}"
                                                  alt="Profile Picture"
                                                  class="w-16 h-16 rounded-full object-cover">
                                         </td>
