@@ -4,7 +4,7 @@
 
 
     <main class="container mx-auto px-4 py-4 max-w-6xl">
-    <x-ui.section-title title="VISI & MISI TP-PKK" />    
+    <x-ui.section-title title="Visi & Misi TP-PKK Kabupaten Bangkalan" />    
     @foreach($pageSections as $section)
         <div class="mb-16">
             <div class="mb-16">

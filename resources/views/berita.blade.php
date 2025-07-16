@@ -2,13 +2,6 @@
     title="Berita - TP-PKK Kabupaten Bangkalan"
     app-name="TP-PKK Kabupaten Bangkalan">
 
-    <!-- Berita Header -->
-    <x-pages.profile-header
-        title="Berita TP-PKK Kabupaten Bangkalan"
-        subtitle="Informasi terkini tentang kegiatan dan program TP-PKK Kabupaten Bangkalan"
-        backgroundImage="https://placehold.co/1600x900/5A92C9/ffffff?text=Berita+PKK+Bangkalan"
-    />
-
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-4 max-w-6xl">
         <!-- Admin Actions -->
@@ -54,7 +47,7 @@
 
         <!-- News Section -->
         <div class="mb-16">
-            <x-ui.section-title title="Berita Terkini" />
+            <x-ui.section-title title="Berita Terkini Kabupaten Bangkalan" />
 
             @if($beritas->count() > 0)
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
