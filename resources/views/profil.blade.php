@@ -2,18 +2,12 @@
     title="Profil - TP-PKK Kabupaten Bangkalan"
     app-name="TP-PKK Kabupaten Bangkalan">
 
-    <!-- Profile Header -->
-    <x-pages.profile-header
-        title="Profil TP-PKK Kabupaten Bangkalan"
-        subtitle="Mengenal lebih dekat organisasi kami dan bagaimana kami melayani masyarakat Bangkalan"
-        backgroundImage="https://placehold.co/1600x900/5A92C9/ffffff?text=TP-PKK+Bangkalan"
-    />
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-4 max-w-6xl">
         <!-- About Section -->
         <div class="mb-16">
-            <x-ui.section-title title="Tentang TP-PKK Kabupaten Bangkalan" />
+            <x-ui.section-title title="Profil TP-PKK Kabupaten Bangkalan" />
 
             <div class="bg-white rounded-xl shadow-sm p-8">
                 <div class="flex flex-col md:flex-row gap-8">

@@ -6,16 +6,13 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Profile Header -->
-    <x-pages.profile-header
-        title="Program Kerja TP-PKK"
-        subtitle="Kabupaten Bangkalan Tahun 2025"
-        backgroundImage="https://placehold.co/1600x900/5A92C9/ffffff?text=Program+Kerja+PKK"
-    />
+
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-4 max-w-6xl">
+        <div class="mb-16">
+            <x-ui.section-title title="Progam Kerja TP-PKK" />
         @foreach($pageSections as $section)
-            <div class="mb-16" x-data="{ open: true }">
                 <!-- Combined Section Title and Toggle -->
                 <div class="flex flex-col bg-[#5A92C9] text-white px-4 py-3 rounded-t-lg cursor-pointer"
                      @click="open = !open">

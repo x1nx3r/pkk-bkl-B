@@ -2,15 +2,11 @@
     title="Visi & Misi - TP-PKK Kabupaten Bangkalan"
     app-name="TP-PKK Kabupaten Bangkalan">
 
-    <!-- Profile Header -->
-    <x-pages.profile-header
-        title="Visi & Misi"
-        subtitle="Arah dan tujuan PKK Kabupaten Bangkalan dalam membangun kesejahteraan keluarga"
-        backgroundImage="https://placehold.co/1600x900/5A92C9/ffffff?text=Visi+Misi+PKK"
-    />
 
     <main class="container mx-auto px-4 py-4 max-w-6xl">
-        @foreach($pageSections as $section)
+    <x-ui.section-title title="VISI & MISI TP-PKK" />    
+    @foreach($pageSections as $section)
+        <div class="mb-16">
             <div class="mb-16">
                 <x-ui.section-title title="{{ $section->title }}" />
 
