@@ -11,7 +11,7 @@
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-4 max-w-6xl">
         <div class="mb-16">
-            <x-ui.section-title title="Progam Kerja TP-PKK" />
+            <x-ui.section-title title="Progam Kerja TP-PKK Kabupaten Bangkalan" />
         @foreach($pageSections as $section)
                 <!-- Combined Section Title and Toggle -->
                 <div class="flex flex-col bg-[#5A92C9] text-white px-4 py-3 rounded-t-lg cursor-pointer"

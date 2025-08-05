@@ -6,7 +6,7 @@
     <main class="container mx-auto px-4 py-4 max-w-6xl">
         <!-- News Section -->
         <div class="mb-16">
-            <x-ui.section-title title="Kegiatan TP-PKK" />
+            <x-ui.section-title title="Kegiatan TP-PKK Kabupaten Bangkalan" />
 
             <!-- Search and Filter Section -->
             <div class="mb-10">
