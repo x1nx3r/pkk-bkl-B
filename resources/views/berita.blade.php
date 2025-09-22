@@ -3,7 +3,7 @@
     app-name="TP-PKK Kabupaten Bangkalan">
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-4 max-w-6xl">
+    <main class="container mx-auto px-6 py-16 max-w-7xl text-lg">
         <!-- Admin Actions -->
         <div class="flex justify-end mb-6">
             @auth

@@ -3,7 +3,7 @@
     app-name="TP-PKK Kabupaten Bangkalan">
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-4 max-w-6xl">
+    <main class="container mx-auto px-6 py-16 max-w-7xl text-lg">
         <!-- News Section -->
         <div class="mb-16">
             <x-ui.section-title title="Berita Terkini TP-PKK Kabupaten Bangkalan" />
@@ -56,15 +56,15 @@
 
                             <div class="p-6">
                                 <!-- Meta Info -->
-                                <div class="flex items-center text-xs text-gray-500 mb-2">
-                                    <span>{{ $berita->created_at->translatedFormat('d F Y') }}</span>
+                                <div class="flex items-center text-base text-gray-600 mb-3">
+                                    <span class="text-base">{{ $berita->created_at->translatedFormat('d F Y') }}</span>
                                     <span class="mx-2">•</span>
-                                    <span>Oleh: {{ $berita->user->name }}</span>
+                                    <span class="text-base">Oleh: {{ $berita->user->name }}</span>
                                 </div>
 
                                 <!-- Title -->
                                 <a href="{{ route('berita.show', $berita) }}" class="block">
-                                    <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-2 hover:text-[#5A92C9] transition duration-200">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-3 line-clamp-2 hover:text-[#5A92C9] transition duration-200">
                                         {{ $berita->judul }}
                                     </h3>
                                 </a>

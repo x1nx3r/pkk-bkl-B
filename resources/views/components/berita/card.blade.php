@@ -16,14 +16,14 @@
     </a>
 
     <div class="p-4">
-        <div class="flex items-center text-xs text-gray-500 mb-1">
-            <span>{{ $berita->created_at->diffForHumans() }}</span>
+        <div class="flex items-center text-sm text-gray-600 mb-2">
+            <span class="text-sm">{{ $berita->created_at->diffForHumans() }}</span>
             <span class="mx-1">•</span>
-            <span>Oleh: {{ $berita->user->name }}</span>
+            <span class="text-sm">Oleh: {{ $berita->user->name }}</span>
         </div>
 
         <a href="{{ route('berita.show', $berita) }}" class="hover:text-primary">
-            <h3 class="text-lg font-bold mb-2 line-clamp-2">{{ $berita->judul }}</h3>
+            <h3 class="text-xl font-bold mb-3 line-clamp-2">{{ $berita->judul }}</h3>
         </a>
 
         @if(!$compact)

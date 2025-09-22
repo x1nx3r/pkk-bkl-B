@@ -10,15 +10,16 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class BeritaResource extends Resource
 {
     protected static ?string $model = Berita::class;
     protected static ?string $navigationIcon = "heroicon-o-newspaper";
     protected static ?string $navigationGroup = "Content Management";
-    protected static ?string $navigationLabel = 'Berita';
-    protected static ?string $pluralLabel = 'Berita';
-    protected static ?string $label = 'Berita';
+    protected static ?string $navigationLabel = "Berita";
+    protected static ?string $pluralLabel = "Berita";
+    protected static ?string $label = "Berita";
 
     public static function form(Form $form): Form
     {
@@ -31,8 +32,8 @@ class BeritaResource extends Resource
                     ->afterStateUpdated(
                         fn($state, callable $set) => $set(
                             "slug",
-                            Str::slug($state)
-                        )
+                            Str::slug($state),
+                        ),
                     ),
 
                 Forms\Components\TextInput::make("slug")
@@ -67,7 +68,7 @@ class BeritaResource extends Resource
                     ->default("draft"),
 
                 Forms\Components\Hidden::make("user_id")
-                    ->default(auth()->id())
+                    ->default(Auth::id())
                     ->required(),
             ]),
         ]);
@@ -85,7 +86,7 @@ class BeritaResource extends Resource
                     fn(string $state): string => match ($state) {
                         "published" => "success",
                         "draft" => "warning",
-                    }
+                    },
                 ),
                 Tables\Columns\TextColumn::make("user.name")->label("Author"),
                 Tables\Columns\TextColumn::make("created_at")

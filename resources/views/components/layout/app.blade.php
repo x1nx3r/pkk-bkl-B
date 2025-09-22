@@ -10,6 +10,12 @@
 
     <!-- Additional styles -->
     <style>
+        /* Slightly larger base font for better readability on widescreens */
+        html, body {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
         .section-animate {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -18,27 +24,27 @@
             box-shadow: 0 10px 25px -5px rgba(90, 146, 201, 0.1), 0 8px 10px -6px rgba(90, 146, 201, 0.05);
         }
 
-        /* Custom scaling wrapper */
-        .scale-wrapper {
-            transform: scale(0.8);
-            transform-origin: top center;
-            width: 125%;
-            margin-left: -12.5%; /* This centers the scaled content */
+        /* Ensure container stretches comfortably on widescreens */
+        .container {
+            max-width: 86rem; /* wider container for large displays */
+        }
+
+        /* Small utility to slightly increase button/text scaling if needed */
+        .ui-scale-lg {
+            font-size: 1.05rem;
         }
     </style>
 
     @stack('styles')
 </head>
 <body class="bg-gray-50 h-full overflow-x-hidden">
-    <div class="scale-wrapper">
         <x-header :app-name="$appName ?? 'PKK Kabupaten Bangkalan'" />
 
-        <main class="container mx-auto px-4 py-12 max-w-6xl">
+        <main class="container mx-auto px-6 py-16 max-w-7xl text-lg">
             {{ $slot }}
         </main>
 
         <x-layout.footer />
-    </div>
 
     @stack('scripts')
 </body>
