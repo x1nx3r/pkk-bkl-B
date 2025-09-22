@@ -15,7 +15,7 @@ class KegiatanResource extends Resource
 {
     protected static ?string $model = Kegiatan::class;
     protected static ?string $navigationIcon = "heroicon-o-calendar";
-    protected static ?string $navigationGroup = "Content Management";
+    protected static ?string $navigationGroup = "Manajemen Konten";
     protected static ?string $recordTitleAttribute = "judul";
     protected static ?string $navigationLabel = 'Kegiatan';
     protected static ?string $pluralLabel = 'Kegiatan';
@@ -24,7 +24,7 @@ class KegiatanResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            Forms\Components\Section::make("Basic Information")->schema([
+            Forms\Components\Section::make("Informasi Dasar")->schema([
                 Forms\Components\TextInput::make("judul")
                     ->required()
                     ->maxLength(255)
@@ -47,28 +47,29 @@ class KegiatanResource extends Resource
                     ->maxLength(255),
             ]),
 
-            Forms\Components\Section::make("Schedule")->schema([
+            Forms\Components\Section::make("Jadwal")->schema([
                 Forms\Components\DateTimePicker::make("tanggal_mulai")
                     ->required()
-                    ->label("Start Date & Time"),
+                    ->label("Tanggal & Waktu Mulai"),
 
                 Forms\Components\DateTimePicker::make("tanggal_selesai")->label(
-                    "End Date & Time (Optional)"
+                    "Tanggal & Waktu Selesai (Opsional)"
                 ),
 
                 Forms\Components\Select::make("status")
                     ->options([
-                        "upcoming" => "Upcoming",
-                        "ongoing" => "Ongoing",
-                        "completed" => "Completed",
+                        "upcoming" => "Akan Datang",
+                        "ongoing" => "Sedang Berlangsung",
+                        "completed" => "Selesai",
                     ])
                     ->required()
                     ->default("upcoming"),
             ]),
 
-            Forms\Components\Section::make("Content")->schema([
+            Forms\Components\Section::make("Konten")->schema([
                 Forms\Components\FileUpload::make("featured_image")
                     ->image()
+                    ->disk('public')
                     ->directory("kegiatan")
                     ->visibility("public")
                     ->imageResizeMode("cover")
@@ -77,6 +78,7 @@ class KegiatanResource extends Resource
                     ->imageResizeTargetHeight("675"),
 
                 Forms\Components\RichEditor::make("deskripsi")
+                    ->label('Deskripsi')
                     ->required()
                     ->columnSpanFull(),
             ]),
@@ -105,14 +107,14 @@ class KegiatanResource extends Resource
                     "gray" => "completed",
                 ]),
                 Tables\Columns\TextColumn::make("user.name")->label(
-                    "Created By"
+                    "Dibuat Oleh"
                 ),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make("status")->options([
-                    "upcoming" => "Upcoming",
-                    "ongoing" => "Ongoing",
-                    "completed" => "Completed",
+                    "upcoming" => "Akan Datang",
+                    "ongoing" => "Sedang Berlangsung",
+                    "completed" => "Selesai",
                 ]),
             ])
             ->actions([

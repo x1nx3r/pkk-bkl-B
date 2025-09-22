@@ -14,13 +14,13 @@ class PageSectionResource extends Resource
 {
     protected static ?string $model = PageSection::class;
     protected static ?string $navigationIcon = "heroicon-o-document-text";
-    protected static ?string $navigationGroup = "Content Management";
-    protected static ?string $navigationLabel = "Page Content";
+    protected static ?string $navigationGroup = "Manajemen Konten";
+    protected static ?string $navigationLabel = "Konten Halaman";
 
     public static function form(Form $form): Form
     {
         return $form->schema([
-            Forms\Components\Section::make("Basic Information")->schema([
+            Forms\Components\Section::make("Informasi Dasar")->schema([
                 Forms\Components\Select::make("page_slug")
                     ->options([
                         "visi-misi" => "Visi & Misi",
@@ -34,25 +34,28 @@ class PageSectionResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->helperText(
-                        'Unique identifier for this section (e.g., "visi", "misi", "tujuan")'
+                        'Identifier unik untuk bagian ini (mis. "visi", "misi", "tujuan")'
                     ),
 
                 Forms\Components\TextInput::make("title")
+                    ->label('Judul')
                     ->required()
                     ->maxLength(255),
 
                 Forms\Components\TextInput::make("order")
+                    ->label('Urutan')
                     ->numeric()
                     ->default(0),
 
-                Forms\Components\Toggle::make("active")->default(true),
+                Forms\Components\Toggle::make("active")->label('Aktif')->default(true),
             ]),
 
             Forms\Components\Section::make("Content")
                 ->schema([
-                    Forms\Components\RichEditor::make("content")
-                        ->required()
-                        ->columnSpanFull()
+            Forms\Components\RichEditor::make("content")
+                ->label('Konten')
+                ->required()
+                ->columnSpanFull()
                         ->toolbarButtons([
                             "bold",
                             "italic",
@@ -75,7 +78,7 @@ class PageSectionResource extends Resource
                             "outdent", // Useful for managing indentation
                         ])
                         ->helperText(
-                            "Use ordered lists (numbered) and headings to structure your content. Basic styling will be applied automatically."
+                            "Gunakan daftar bernomor dan heading untuk menyusun konten. Styling dasar akan diterapkan otomatis."
                         ),
                 ])
                 ->collapsible(),

@@ -16,7 +16,7 @@ class BeritaResource extends Resource
 {
     protected static ?string $model = Berita::class;
     protected static ?string $navigationIcon = "heroicon-o-newspaper";
-    protected static ?string $navigationGroup = "Content Management";
+    protected static ?string $navigationGroup = "Manajemen Konten";
     protected static ?string $navigationLabel = "Berita";
     protected static ?string $pluralLabel = "Berita";
     protected static ?string $label = "Berita";
@@ -24,7 +24,7 @@ class BeritaResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            Forms\Components\Section::make("Basic Information")->schema([
+            Forms\Components\Section::make("Informasi Dasar")->schema([
                 Forms\Components\TextInput::make("judul")
                     ->required()
                     ->maxLength(255)
@@ -43,9 +43,10 @@ class BeritaResource extends Resource
                     ->dehydrated(),
             ]),
 
-            Forms\Components\Section::make("Content")->schema([
+                Forms\Components\Section::make("Konten")->schema([
                 Forms\Components\FileUpload::make("featured_image")
                     ->image()
+                    ->disk('public')
                     ->directory("berita")
                     ->visibility("public")
                     ->imageResizeMode("cover")
@@ -58,11 +59,11 @@ class BeritaResource extends Resource
                     ->columnSpanFull(),
             ]),
 
-            Forms\Components\Section::make("Publishing")->schema([
+            Forms\Components\Section::make("Publikasi")->schema([
                 Forms\Components\Select::make("status")
                     ->options([
                         "draft" => "Draft",
-                        "published" => "Published",
+                        "published" => "Terbit",
                     ])
                     ->required()
                     ->default("draft"),
@@ -88,7 +89,7 @@ class BeritaResource extends Resource
                         "draft" => "warning",
                     },
                 ),
-                Tables\Columns\TextColumn::make("user.name")->label("Author"),
+                Tables\Columns\TextColumn::make("user.name")->label("Penulis"),
                 Tables\Columns\TextColumn::make("created_at")
                     ->dateTime()
                     ->sortable(),
@@ -96,7 +97,7 @@ class BeritaResource extends Resource
             ->filters([
                 Tables\Filters\SelectFilter::make("status")->options([
                     "draft" => "Draft",
-                    "published" => "Published",
+                    "published" => "Terbit",
                 ]),
             ])
             ->actions([
