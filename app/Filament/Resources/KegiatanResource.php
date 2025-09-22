@@ -48,13 +48,76 @@ class KegiatanResource extends Resource
             ]),
 
             Forms\Components\Section::make("Jadwal")->schema([
-                Forms\Components\DateTimePicker::make("tanggal_mulai")
+                // hidden combined datetime value stored in DB
+                Forms\Components\Hidden::make('tanggal_mulai')
                     ->required()
-                    ->label("Tanggal & Waktu Mulai"),
+                    ->dehydrated()
+                    ->afterStateHydrated(function ($state, callable $set) {
+                        if ($state) {
+                            try {
+                                $dt = \Carbon\Carbon::parse($state);
+                                $set('tanggal_mulai_date', $dt->toDateString());
+                                $set('tanggal_mulai_time', $dt->format('H:i'));
+                            } catch (\Throwable $e) {
+                                // ignore invalid existing value
+                            }
+                        }
+                    }),
 
-                Forms\Components\DateTimePicker::make("tanggal_selesai")->label(
-                    "Tanggal & Waktu Selesai (Opsional)"
-                ),
+                Forms\Components\DatePicker::make('tanggal_mulai_date')
+                    ->label('Tanggal Mulai')
+                    ->required()
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, callable $set, $get) {
+                        $time = $get('tanggal_mulai_time') ?? '00:00';
+                        $set('tanggal_mulai', $state . ' ' . $time . ':00');
+                    }),
+
+                Forms\Components\TimePicker::make('tanggal_mulai_time')
+                    ->label('Waktu Mulai')
+                    ->required()
+                    ->reactive()
+                    ->withoutSeconds()
+                    ->afterStateUpdated(function ($state, callable $set, $get) {
+                        $date = $get('tanggal_mulai_date') ?? now()->toDateString();
+                        $set('tanggal_mulai', $date . ' ' . $state . ':00');
+                    }),
+
+                // optional end datetime: allow null
+                Forms\Components\Hidden::make('tanggal_selesai')
+                    ->dehydrated()
+                    ->afterStateHydrated(function ($state, callable $set) {
+                        if ($state) {
+                            try {
+                                $dt = \Carbon\Carbon::parse($state);
+                                $set('tanggal_selesai_date', $dt->toDateString());
+                                $set('tanggal_selesai_time', $dt->format('H:i'));
+                            } catch (\Throwable $e) {
+                                // ignore
+                            }
+                        }
+                    }),
+
+                Forms\Components\DatePicker::make('tanggal_selesai_date')
+                    ->label('Tanggal Selesai (Opsional)')
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, callable $set, $get) {
+                        $time = $get('tanggal_selesai_time');
+                        if ($state && $time) {
+                            $set('tanggal_selesai', $state . ' ' . $time . ':00');
+                        }
+                    }),
+
+                Forms\Components\TimePicker::make('tanggal_selesai_time')
+                    ->label('Waktu Selesai (Opsional)')
+                    ->reactive()
+                    ->withoutSeconds()
+                    ->afterStateUpdated(function ($state, callable $set, $get) {
+                        $date = $get('tanggal_selesai_date');
+                        if ($date && $state) {
+                            $set('tanggal_selesai', $date . ' ' . $state . ':00');
+                        }
+                    }),
 
                 Forms\Components\Select::make("status")
                     ->options([
