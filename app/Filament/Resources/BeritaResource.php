@@ -28,7 +28,7 @@ class BeritaResource extends Resource
                 Forms\Components\TextInput::make("judul")
                     ->required()
                     ->maxLength(255)
-                    ->reactive()
+                    ->live(onBlur: true)
                     ->afterStateUpdated(
                         fn($state, callable $set) => $set(
                             "slug",

@@ -36,27 +36,6 @@
             <a href="{{ route('berita.show', $berita) }}" class="text-primary text-sm hover:underline">
                 Baca selengkapnya
             </a>
-
-            @auth
-                @if(Gate::allows('update-berita', $berita))
-                    <div class="flex gap-1">
-                        <a href="{{ route('berita.edit', $berita) }}" class="text-yellow-500 hover:text-yellow-700">
-                            <i class="fas fa-edit"></i>
-                        </a>
-
-                        @if(Gate::allows('delete-berita', $berita))
-                            <form action="{{ route('berita.destroy', $berita) }}" method="POST" class="inline"
-                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-red-500 hover:text-red-700">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </form>
-                        @endif
-                    </div>
-                @endif
-            @endauth
         </div>
     </div>
 </div>
