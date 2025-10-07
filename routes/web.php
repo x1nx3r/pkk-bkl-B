@@ -5,6 +5,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Models\PageSection;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,21 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [HomeController::class, "index"])->name("home");
 
 // Static Pages
-Route::view("/profil", "profil")->name("profil");
+Route::get("/profil", function () {
+    return view("pages.profil");
+})->name("profil");
+
+// Profil section routes
+Route::get('/profil/{section}', function ($section) {
+    $validSections = ['tentang-kami', 'struktur-organisasi', 'landasan-hukum'];
+    
+    if (!in_array($section, $validSections)) {
+        abort(404);
+    }
+    
+    return view('pages.profil', compact('section'));
+})->name('profil.section');
+
 Route::get("/visi-misi", function () {
     // Get all active sections for the "visi-misi" page
     $pageSections = \App\Models\PageSection::where("page_slug", "visi-misi")
@@ -24,8 +39,18 @@ Route::get("/visi-misi", function () {
         ->orderBy("order")
         ->get();
 
-    return view("visi-misi", compact("pageSections"));
+    return view("pages.visi-misi", compact("pageSections"));
 })->name("visi-misi");
+
+// Per-section pages for visi-misi (e.g. /visi-misi/visi)
+Route::get('/visi-misi/{section_key}', function ($section_key) {
+    $pageSection = PageSection::where('page_slug', 'visi-misi')
+        ->where('section_key', $section_key)
+        ->where('active', true)
+        ->firstOrFail();
+
+    return view('visi-misi.section', ['pageSection' => $pageSection]);
+})->name('visi-misi.section');
 Route::get("/pokja-sekretariat", function () {
     $pageSections = \App\Models\PageSection::where(
         "page_slug",
@@ -35,10 +60,18 @@ Route::get("/pokja-sekretariat", function () {
         ->orderBy("order")
         ->get();
 
-    return view("pokja-sekretariat", compact("pageSections"));
+    return view("pages.pokja-sekretariat", compact("pageSections"));
 })->name("pokja-sekretariat");
-Route::view("/informasi", "informasi")->name("informasi");
-Route::view("/dokumentasi", "dokumentasi")->name("dokumentasi");
+
+// Per-section pages for pokja-sekretariat
+Route::get('/pokja-sekretariat/{section_key}', function ($section_key) {
+    $pageSection = PageSection::where('page_slug', 'pokja-sekretariat')
+        ->where('section_key', $section_key)
+        ->where('active', true)
+        ->firstOrFail();
+
+    return view('pokja-sekretariat.section', ['pageSection' => $pageSection]);
+})->name('pokja-sekretariat.section');
 
 // Admin Gateway
 Route::get("/admin-gateway", [AdminGatewayController::class, "show"])->name(

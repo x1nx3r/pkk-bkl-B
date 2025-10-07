@@ -61,7 +61,7 @@
                                 <!-- Meta Info -->
                                 <div class="flex items-center text-xs text-gray-500 mb-2">
                                     <span>{{ $berita->created_at->translatedFormat('d F Y') }}</span>
-                                    <span class="mx-2">•</span>
+                                    <span class="mx-2"></span>
                                     <span>Oleh: {{ $berita->user->name }}</span>
                                 </div>
 
