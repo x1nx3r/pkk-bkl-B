@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             BeritaSeeder::class,
             KegiatanSeeder::class,
             PageSectionSeeder::class,
+            OrganizationStructureSeeder::class,
         ]);
     }
 }
