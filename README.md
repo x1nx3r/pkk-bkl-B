@@ -36,6 +36,12 @@ DB_DATABASE=nama_database
 DB_USERNAME=user_database
 DB_PASSWORD=password_database
 ```
+Untuk deployment ke server ubah juga environment ini:
+```
+APP_URL=https://domain.com
+APP_ENV=production
+```
+
 
 4. Jalankan migrasi dan seeder
 ```bash
