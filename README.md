@@ -40,8 +40,10 @@ Untuk deployment ke server ubah juga environment ini:
 ```
 APP_URL=https://domain.com
 APP_ENV=production
+TURNSTILE_SITEKEY=your_site_key_here
+TURNSTILE_SECRET=your_secret_key_here
 ```
-
+Untuk konfigurasi key turnstile, (captcha cloudflare) buat key di https://dash.cloudflare.com dengan pengaturan nama domain sesuai dengan domain yang akan dihosting agar captcha tidak error
 
 4. Jalankan migrasi dan seeder
 ```bash
@@ -73,6 +75,12 @@ php artisan serve
 
 8. Akses aplikasi
 - Buka `http://localhost:8000` di browser
+
+9. Buat akun admin
+- Setelah aplikasi dapat berjalan buat akun admin dengan menjalankan:
+```
+php artisan make:filament-user
+```
 
 ---
 
