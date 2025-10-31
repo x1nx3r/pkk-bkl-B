@@ -143,7 +143,29 @@ class KegiatanResource extends Resource
                 Forms\Components\RichEditor::make("deskripsi")
                     ->label('Deskripsi')
                     ->required()
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->toolbarButtons([
+                        "bold",
+                        "italic",
+                        "underline",
+                        "strike",
+                        "orderedList",
+                        "bulletList",
+                        "h2",
+                        "h3",
+                        "h4",
+                        "h5",
+                        "alignLeft",
+                        "alignCenter",
+                        "alignRight",
+                        "link",
+                        "undo",
+                        "redo",
+                        "blockquote",
+                        "indent",
+                        "outdent",
+                    ])
+                    ->helperText("Gunakan toolbar untuk memformat teks deskripsi kegiatan."),
             ]),
 
             Forms\Components\Hidden::make("user_id")
