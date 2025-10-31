@@ -24,4 +24,31 @@ class PageSection extends Model
         "content_data" => "array",
         "active" => "boolean",
     ];
+
+    /**
+     * Set the content_data attribute, ensuring it's always an array
+     */
+    public function setContentDataAttribute($value)
+    {
+        if (is_string($value)) {
+            $decoded = json_decode($value, true);
+            $this->attributes['content_data'] = json_encode(is_array($decoded) ? $decoded : []);
+        } elseif (is_array($value)) {
+            $this->attributes['content_data'] = json_encode($value);
+        } else {
+            $this->attributes['content_data'] = json_encode([]);
+        }
+    }
+
+    /**
+     * Get the content_data attribute, ensuring it's always an array
+     */
+    public function getContentDataAttribute($value)
+    {
+        if (is_string($value)) {
+            $decoded = json_decode($value, true);
+            return is_array($decoded) ? $decoded : [];
+        }
+        return is_array($value) ? $value : [];
+    }
 }

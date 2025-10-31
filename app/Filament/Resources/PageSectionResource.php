@@ -89,7 +89,20 @@ class PageSectionResource extends Resource
                         ->helperText(
                             "Additional structured data for complex sections"
                         )
-                        ->columnSpanFull(),
+                        ->columnSpanFull()
+                        ->default([])
+                        ->dehydrateStateUsing(function ($state) {
+                            // Ensure we always return an array for storage
+                            return is_array($state) ? $state : [];
+                        })
+                        ->formatStateUsing(function ($state) {
+                            // Handle cases where state might be a string or null
+                            if (is_string($state)) {
+                                $decoded = json_decode($state, true);
+                                return is_array($decoded) ? $decoded : [];
+                            }
+                            return is_array($state) ? $state : [];
+                        }),
                 ])
                 ->collapsed()
                 ->collapsible(),
